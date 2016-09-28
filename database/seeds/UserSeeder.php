@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'estado'=>'1',
             'email' => 'admin@polex.cl',
             'password' => bcrypt('admin'),
-            'perfil_id' => '1',
+            'id_perfil' => '1',
         ]);
 
         DB::table('Users')->insert([
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'estado'=>'1',
             'email' => 'alexander.figueroa.ramos@gmail.com',
             'password' => bcrypt('alexander'),
-            'perfil_id' => '2',
+            'id_perfil' => '2',
         ]);
         DB::table('Users')->insert([
             'name' => 'Rodrigo',
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             'estado'=>'1',
             'email' => 'rodrigo.gonzalez.zura@gmail.com',
             'password' => bcrypt('rodrigo'),
-            'perfil_id' => '3',
+            'id_perfil' => '3',
         ]);
     }
 }

@@ -22,10 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->integer('perfil_id')->unsigned();
-            $table->foreign('perfil_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->integer('id_perfil')->unsigned();
         });
     }
 

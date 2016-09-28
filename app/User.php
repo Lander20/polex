@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name','email', 'password','entry_date','perfil_id','estado'
+        'name', 'last_name','email', 'password','entry_date','id_perfil','estado'
     ];
 
     /**
@@ -25,6 +25,11 @@ class User extends Authenticatable
     ];
 
     public function perfil() {
-        return $this->belongsTo('App\Perfil'); // Le indicamos que se va relacionar con el atributo id
+        return $this->belongsTo('App\Perfil','id_perfil'); // Le indicamos que se va relacionar con el atributo id
+    }
+
+    public function proyectos()
+    {
+        return $this->hasMany('App\Proyecto','id_usuario');
     }
 }

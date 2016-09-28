@@ -42,7 +42,8 @@ class UsuarioController extends Controller
     public function edit($id){
         $usuario = User::findOrFail($id);
         $perfiles=Perfil::all();
-        //echo $usuario->perfil->id;
+        //var_dump($perfiles);
+        //echo ($usuario->perfil->id);
         return view('user.edit',compact('usuario','perfiles'));
     }
 

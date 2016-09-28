@@ -22,7 +22,7 @@
 <div class="form-group col-xs-offset-2 col-xs-8">
     {!! Form::label('perfil', 'Perfil:', ['class' => 'control-label']) !!}
 
-    <select class="form-control" name="perfil_id">
+    <select class="form-control" name="id_perfil">
         @if(!empty($usuario))
             @if($usuario->perfil->id==1)
                 <option  value="{{$usuario->perfil->id}}">{{$usuario->perfil->name}}</option>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePerfilsTable extends Migration
+class CreateProyectosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,20 @@ class CreatePerfilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('perfils', function (Blueprint $table) {
+        Schema::create('proyectos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->boolean('estado');
+
+            $table->integer('id_usuario')->unsigned();
+            $table->foreign('id_usuario')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
             $table->timestamps();
+
+
         });
 
-        Schema::table('users', function($table) {
-            $table->foreign('id_perfil')
-                ->references('id')->on('perfils')
-                ->onDelete('cascade');
-        });
     }
 
     /**
@@ -33,6 +35,6 @@ class CreatePerfilsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('perfils');
+        Schema::drop('proyectos');
     }
 }
