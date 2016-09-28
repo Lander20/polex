@@ -16,7 +16,18 @@
 });*/
 
 Route::auth();
-Route::get("/", "HomeController@index");
 
-Route::resource('/user', 'UsuarioController');
+Route::group(['middleware' => 'auth'], function () {
 
+    Route::group(['middleware' => 'status'], function () {
+        Route::get("/", "HomeController@index");
+
+        Route::get('user/habilitar/{id}', ['as' => 'user.habilitar', 'uses' => 'UsuarioController@habilitar']);
+        Route::resource('/user', 'UsuarioController');
+
+        Route::get('perfil/habilitar/{id}', ['as' => 'perfil.habilitar', 'uses' => 'PerfilController@habilitar']);
+        Route::resource('/perfil', 'PerfilController');
+    });
+
+
+});

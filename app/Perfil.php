@@ -8,7 +8,13 @@ class Perfil extends Model
 {
 
     protected $fillable = [
-        'name', '','email',
+        'name','estado'
     ];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
+    public function Usuarios()
+    {
+        return $this->hasMany('App\User');
+    }
 }

@@ -244,53 +244,41 @@
                             </div>
                             <!-- /input-group -->
                         </li>--}}
-                        <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+                        <li>
                             <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li {{ (Request::is('*charts') ? 'class="active"' : '') }}>
+                        <li >
                             <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li {{ (Request::is('*tables') ? 'class="active"' : '') }}>
+                        <li>
                             <a href="{{ url ('tables') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
-                        <li {{ (Request::is('*forms') ? 'class="active"' : '') }}>
+                        <li>
                             <a href="/user"><i class="fa fa-edit fa-fw"></i> </a>
                         </li>
                         <li >
                             <a href="#"><i class="fa fa-users"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
+                                <li>
                                     <a href="{{ route('user.index') }}">Ver usuarios</a>
                                 </li>
-                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
+                                <li>
                                     <a href="{{ route ('user.create' ) }}">Crear usuario</a>
                                 </li>
-                                {{--<li {{ (Request::is('*notifications') ? 'class="active"' : '') }}>
-                                    <a href="{{ url('notifications') }}">Alerts</a>
-                                </li>
-                                <li {{ (Request::is('*typography') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('typography') }}">Typography</a>
-                                </li>
-                                <li {{ (Request::is('*icons') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('icons') }}"> Icons</a>
-                                </li>
-                                <li {{ (Request::is('*grid') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('grid') }}">Grid</a>
-                                </li>--}}
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Perfil<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{route('perfil.index')}}">Ver Perfiles</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{route('perfil.create')}}">Crear Perfil</a>
                                 </li>
-                                <li>
+                                {{--<li>
                                     <a href="#">Third Level <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
@@ -307,7 +295,7 @@
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
-                                </li>
+                                </li>--}}
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -334,13 +322,32 @@
         </nav>
 
         <div id="page-wrapper">
+            <div class="row col-xs-12" style="margin-top: 1%;margin-bottom: -3%;">
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success">
+                        {{ Session::get('flash_message') }}
+                    </div>
+                @endif
+                @if (Session::has('errors'))
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            <strong>Oops! Problemas  : </strong>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
 			 <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">@yield('page_heading')</h1>
                 </div>
                 <!-- /.col-lg-12 -->
            </div>
-			<div class="row">  
+
+			<div class="row">
+
 				@yield('section')
 
             </div>

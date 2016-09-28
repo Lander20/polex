@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\Perfil;
 use Session;
 
 class UsuarioController extends Controller
@@ -18,7 +19,8 @@ class UsuarioController extends Controller
     }
 
     public function create(){
-        return view('user.create');
+        $perfiles=Perfil::all();
+        return view('user.create',compact('perfiles'));
     }
 
     public function store(Request $request){
@@ -39,7 +41,9 @@ class UsuarioController extends Controller
 
     public function edit($id){
         $usuario = User::findOrFail($id);
-        return view('user.edit',compact('usuario'));
+        $perfiles=Perfil::all();
+        //echo $usuario->perfil->id;
+        return view('user.edit',compact('usuario','perfiles'));
     }
 
     public function update(Request $request, $id){
@@ -47,8 +51,24 @@ class UsuarioController extends Controller
         $usuario=User::findOrFail($id);
         $usuario->fill($input)->save();
 
-        Session::flash('message', 'Usuario editado con exito !');
-        return redirect()->route('user.show',$id);
+        Session::flash('flash_message', 'Usuario editado con exito !');
+        return redirect()->route('user.index',$id);
 
+    }
+
+    public function destroy($id){
+        $usuario = User::findOrFail($id);
+        $usuario->estado=0;
+        $usuario->save();
+        Session::flash('flash_message', 'Usuario deshabilitado con exito !');
+        return redirect()->route('user.index');
+    }
+
+    public function habilitar($id){
+        $usuario = User::findOrFail($id);
+        $usuario->estado=1;
+        $usuario->save();
+        Session::flash('flash_message', 'Usuario habilitado con exito !');
+        return redirect()->route('user.index');
     }
 }

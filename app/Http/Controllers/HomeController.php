@@ -15,7 +15,13 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        if(Auth::user()->estado){
+            $this->middleware('auth');
+        }
+        else{
+            Auth::logout();
+            return redirect('/')->withErrors("Usuario Deshabilitado");
+        }
     }
 
     /**
@@ -23,9 +29,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home3');
+    public function index(){
+
+        return view('polex');
     }
 
 
