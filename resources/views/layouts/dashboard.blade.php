@@ -245,9 +245,18 @@
                             <!-- /input-group -->
                         </li>--}}
                         <li>
-                            <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Proyecto<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{route('proyecto.index')}}">Ver Proyectos</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('proyecto.create')}}">Crear Proyecto</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
-                        <li >
+                       {{-- <li >
                             <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
                             <!-- /.nav-second-level -->
                         </li>
@@ -256,7 +265,7 @@
                         </li>
                         <li>
                             <a href="/user"><i class="fa fa-edit fa-fw"></i> </a>
-                        </li>
+                        </li>--}}
                         <li >
                             <a href="#"><i class="fa fa-users"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -299,7 +308,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        {{--<li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li {{ (Request::is('*blank') ? 'class="active"' : '') }}>
@@ -313,7 +322,7 @@
                         </li>
                         <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
                             <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> Documentation</a>
-                        </li>
+                        </li>--}}
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

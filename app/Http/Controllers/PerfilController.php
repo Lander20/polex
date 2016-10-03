@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\PerfilRequest;
 use App\Http\Requests;
 use App\Perfil;
 use Session;
@@ -19,7 +19,7 @@ class PerfilController extends Controller
         return view('perfil.create');
     }
 
-    public function store(Request $request){
+    public function store(PerfilRequest $request){
         $perfil = $request->all();
         $perfil=Perfil::create($perfil);
 
@@ -29,8 +29,8 @@ class PerfilController extends Controller
 
     public function show(Request $request,$id){
         $perfil=Perfil::findOrFail($id);
-
-        return view('perfil.index',compact("perfil"));
+        //var_dump($perfil->usuarios);
+        return view('perfil.show',compact("perfil"));
     }
 
 
@@ -40,7 +40,7 @@ class PerfilController extends Controller
         return view('perfil.edit',compact('perfil'));
     }
 
-    public function update(Request $request, $id){
+    public function update(PerfilRequest $request, $id){
         $input=$request->all();
         $perfil=Perfil::findOrFail($id);
         $perfil->fill($input)->save();

@@ -11,6 +11,11 @@ class Proyecto extends Model
     ];
 
     public function usuario() {
-        return $this->belongsTo('App\Usuario','id_usuario');
+        return $this->belongsTo('App\User','id_usuario');
+    }
+
+    public function planos()
+    {
+        return $this->hasMany('App\Plano','id_proyecto');
     }
 }

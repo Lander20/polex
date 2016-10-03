@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\UserRequest;
 use App\Http\Requests;
 use App\User;
 use App\Perfil;
@@ -23,7 +23,7 @@ class UsuarioController extends Controller
         return view('user.create',compact('perfiles'));
     }
 
-    public function store(Request $request){
+    public function store(UserRequest $request){
         $usuario = $request->all();
         $usuario['password']=bcrypt($usuario['password']);
         $user=User::create($usuario);
@@ -47,7 +47,7 @@ class UsuarioController extends Controller
         return view('user.edit',compact('usuario','perfiles'));
     }
 
-    public function update(Request $request, $id){
+    public function update(UserRequest $request, $id){
         $input=$request->all();
         $usuario=User::findOrFail($id);
         $usuario->fill($input)->save();

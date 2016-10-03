@@ -27,6 +27,9 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('perfil/habilitar/{id}', ['as' => 'perfil.habilitar', 'uses' => 'PerfilController@habilitar']);
         Route::resource('/perfil', 'PerfilController');
+
+        Route::get('proyecto/{idProyecto}/plano/{idPlano}', ['as' => 'proyecto.plano', 'uses' => 'ProyectoController@planosByProyecto']);
+        Route::resource('/proyecto', 'ProyectoController');
     });
 
 
