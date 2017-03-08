@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProyectoRequest;
 use App\Http\Requests;
@@ -18,12 +19,14 @@ class ProyectoController extends Controller
     }
 
     public function create(){
-        return view('proyecto.create');
+        $usuarios = User::all();
+        return view('proyecto.create',compact('usuarios'));
     }
 
     public function store(ProyectoRequest $request){
         $proyecto = $request->all();
-        $proyecto['id_usuario']=Auth::user()->id;
+        //$proyecto['id_usuario']=Auth::user()->id;
+        
         $proyecto=Proyecto::create($proyecto);
 
         //TODO se crean 3 planos automaticamente asignados a este PROYECTO.
@@ -50,12 +53,12 @@ class ProyectoController extends Controller
         //var_dump($proyecto->planos);
         return view('proyecto.show',compact("proyecto"));
     }
-
-
+    
     public function edit($id){
         $proyecto = Proyecto::findOrFail($id);
+        $usuarios = User::all();
 
-        return view('proyecto.edit',compact('proyecto'));
+        return view('proyecto.edit',compact('proyecto','usuarios'));
     }
 
     public function update(ProyectoRequest $request, $id){
@@ -83,11 +86,5 @@ class ProyectoController extends Controller
         Session::flash('flash_flash_message', 'Perfil habilitado con exito !');
         return redirect()->route('proyecto.index');
     }
-
-    public function planosByProyecto($idProyecto,$idPlano){
-        $proyecto = Proyecto::findOrFail($idProyecto);
-        $plano=$proyecto->planos()->where('id',$idPlano)->first();
-        echo $plano->presupuesto()->id;
-        return view('plano.show',compact('plano'));
-    }
+    
 }

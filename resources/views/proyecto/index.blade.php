@@ -9,6 +9,7 @@
                 <th>Nombre</th>
                 <th>Asignado a :</th>
                 <th>Ver</th>
+                <th>Editar</th>
             </tr>
             </thead>
             <tbody>
@@ -17,6 +18,7 @@
                     <td>{{$proyecto->name}}</td>
                     <td>{{$proyecto->usuario->name}}</td>
                     <td><a href="{{route('proyecto.show',$proyecto->id)}}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                    <td><a href="{{route('proyecto.edit',$proyecto->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 </tr>
             @endforeach
             </tbody>

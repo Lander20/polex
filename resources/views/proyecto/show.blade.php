@@ -2,7 +2,7 @@
 @section('page_heading','Proyecto')
 @section('section')
 
-    <h1>Editando Proyecto "{{ $proyecto->name }}", asignado a {{$proyecto->usuario->name}}</h1>
+    <h3>Editando Proyecto "{{ $proyecto->name }}", asignado a {{$proyecto->usuario->name}}</h3>
 
     <div class="panel panel-primary" style="margin: 4%">
 

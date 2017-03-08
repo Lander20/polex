@@ -10,8 +10,8 @@ class Presupuesto extends Model{
         'id','id_plano'
     ];
 
-    public function plano()
+    public function planos()
     {
-        return $this->belongsTo('App\Plano','id_plano');
+        return $this->hasMany('App\Plano','id_plano');
     }
 }
