@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ProyectoSeed::class);
         $this->call(PlanoSeed::class);
-        $this->call(PresupuestoSeed::class);
+        $this->call(MaterialSeed::class);
+        $this->call(InfoCubicacionSeeder::class);
+        $this->call(CubicacionSeed::class);
     }
 }

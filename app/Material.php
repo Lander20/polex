@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Presupuesto extends Model{
-    
+class Material extends Model
+{
     protected $fillable = [
-        'id',
+        'name','id'
     ];
-
 }

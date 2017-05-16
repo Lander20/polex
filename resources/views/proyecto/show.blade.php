@@ -22,7 +22,7 @@
                 <tr>
                     @foreach($proyecto->planos as $planos)
                         <td>{{$planos->name}}</td>
-                        <td><a class="btn btn-primary" href="{{route('proyecto.plano',[$proyecto->id,$planos->id])}}"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a></tr>
+                        <td><a class="btn btn-primary" href="{{route('plano.show',[$proyecto->id,$planos->id])}}"><i class="fa fa-hand-o-up" aria-hidden="true"></i></a></tr>
                     @endforeach
                 </tr>
 

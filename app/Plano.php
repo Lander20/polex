@@ -14,8 +14,8 @@ class Plano extends Model{
         return $this->belongsTo('App\Proyecto','id_proyecto');
     }
 
-    public function presupuesto()
+    public function cubicaciones()
     {
-        return $this->hasOne('App\Presupuesto','id_plano');
+        return $this->hasMany('App\Cubicacion','id_plano');
     }
 }

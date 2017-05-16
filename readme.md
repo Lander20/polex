@@ -15,4 +15,4 @@ Documentation for the framework can be found on the [Laravel website](http://lar
 
 ##Imagen modelo
 
-![alt tag](/public/images/modelo.png)
+![alt tag](modelo2.png)
