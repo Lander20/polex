@@ -23,8 +23,18 @@ class PerfilRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name'=>'required|unique:perfils',
-        ];
+        switch($this->method()) {
+            case 'PUT':
+            case 'PATCH':
+                return [
+                    'name'=>'required',
+                ];
+
+            default:
+                return [
+                    'name'=>'required|unique:perfils',
+                ];
+        }
+
     }
 }

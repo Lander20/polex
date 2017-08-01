@@ -1,15 +1,19 @@
 @extends('layouts.dashboard')
 @section('page_heading','Proyecto')
+@section('page_small','Crear un nuevo Proyecto')
+
 @section('section')
+    <div class="card">
+        <div class="body">
+            <br>
+            {!! Form::open([ 'route' => 'proyecto.store']) !!}
 
-    <h3>Crear un nuevo Proyecto</h3>
-    <br>
+            @include('proyecto.form')
 
-    {!! Form::open([ 'route' => 'proyecto.store']) !!}
+            {!! Form::submit('Crear', ['class' => 'btn btn-success',"style"=>"margin-left:41%"]) !!}
 
-    @include('proyecto.form')
+            {!! Form::close() !!}
+        </div>
+    </div>
 
-    {!! Form::submit('Crear', ['class' => 'btn btn-primary col-xs-offset-4 col-xs-4',"style"=>"margin-bottom:1%"]) !!}
-
-    {!! Form::close() !!}
 @stop

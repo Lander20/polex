@@ -15,8 +15,10 @@ class CreateInfoCubicacionsTable extends Migration
         Schema::create('info_cubicacions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('url_image');
             $table->boolean('selected')->default('0');
             $table->timestamps();
+
         });
     }
 

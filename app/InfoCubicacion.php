@@ -7,15 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class InfoCubicacion extends Model
 {
     protected $fillable = [
-        'id','name','selected'
+        'id','name','url_image','selected'
     ];
 
     public function cubicaciones()
     {
-        return $this->hasMany('App\Cubicacion','id');
+        return $this->hasMany('App\Cubicacion','id_info');
     }
 
-    public function cubicacionesByPlano($id){
-        return Cubicacion::where('id_plano',$id)->get();
-    }
 }

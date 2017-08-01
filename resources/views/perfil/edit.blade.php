@@ -1,16 +1,20 @@
 @extends('layouts.dashboard')
 @section('page_heading','Perfil')
+@section('page_small','Editando perfil')
+
 @section('section')
+    <div class="card">
+        <div class="body">
+            <br>
+            {!! Form::model($perfil, ['method' => 'PATCH', 'route' => ['perfil.update', $perfil->id]]) !!}
 
-    <h3>Editando perfil "{{ $perfil->name }}"</h3>
-    <br>
-
-    {!! Form::model($perfil, ['method' => 'PATCH', 'route' => ['perfil.update', $perfil->id]]) !!}
-
-    @include('perfil.form')
+            @include('perfil.form')
 
 
-    {!! Form::submit('Guardar',['class' => 'btn btn-primary col-xs-offset-4 col-xs-4', 'style'=>'']) !!}
+            {!! Form::submit('Guardar', ['class' => 'btn btn-success',"style"=>"margin-left:41%"]) !!}
 
-    {!! Form::close() !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
+
 @stop

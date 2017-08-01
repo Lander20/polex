@@ -1,78 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
+    <title>Prueba</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
-    <title>Laravel</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <link href="/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-     <link href="public/css/style2.css" rel="stylesheet">
+    <link href="/plugins/node-waves/waves.css" rel="stylesheet" />
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
+    <!-- Animation Css -->
+    <link href="/plugins/animate-css/animate.css" rel="stylesheet" />
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
+    <!-- Morris Chart Css-->
+    <link href="/plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style-2.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="/css/themes/all-themes.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+
 </head>
-<body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+<body class="theme-red-login">
+    <section style="top: 30%; left: 33%;width: auto; height: auto; position: absolute;">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    {{ csrf_field() }}
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                    <div class="col-xs-11 col-md-10">
+                        <div class="col-xs-12">
+                            <div class="form-group form-float {{ $errors->has('email') ? ' has-error' : '' }}">
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Polex
-                </a>
+                                <div class="form-line">
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                    <label class="form-label" style="color:white">Email Address</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 20px">
+                            <div class="form-group form-float {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="form-line">
+                                    <input id="password" type="password" class="form-control" name="password">
+                                    <label class="form-label" style="color:white">Password Address</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 20px">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger col-xs-12 waves-red" style="margin-bottom: 10px">
+                                    <i class="fa fa-btn fa-sign-in"></i> Login
+                                </button>
+                                <a class="btn-olvide"></a>
+                                {{--<a class="btn-olvide" href="{{ url('/password/reset') }}">Olvide la contraseña?</a>--}}
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Entrar</a></li>
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
         </div>
-    </nav>
+    </section>
 
-    @yield('content')
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="/plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="/plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="/plugins/raphael/raphael.min.js"></script>
+    <script src="/plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="/plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="/plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="/js/admin.js"></script>
+    <script src="/js/function.js"></script>
+    <script src="/js/pages/index.js"></script>
+
+    <!-- Demo Js -->
+    <script src="/js/demo.js"></script>
+
 </body>
 </html>

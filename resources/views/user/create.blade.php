@@ -1,15 +1,19 @@
 @extends('layouts.dashboard')
-@section('page_heading','Usuarios')
+@section('page_heading','Usuario')
+@section('page_small','Crear un nuevo usuario')
 @section('section')
+    <div class="card">
+        <div class="body">
+            <br>
+            {!! Form::open([ 'route' => 'user.store']) !!}
 
-    <h3>Crear un nuevo usuario</h3>
-    <br>
+            @include('user.form')
 
-    {!! Form::open([ 'route' => 'user.store']) !!}
+            {!! Form::submit('Crear', ['class' => 'btn btn-success',"style"=>"margin-left:41%"]) !!}
 
-    @include('user.form')
+            {!! Form::close() !!}
+        </div>
+    </div>
 
-    {!! Form::submit('Crear', ['class' => 'btn btn-primary col-xs-offset-4 col-xs-4',"style"=>"margin-bottom:1%"]) !!}
 
-    {!! Form::close() !!}
 @stop

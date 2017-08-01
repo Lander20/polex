@@ -1,4 +1,9 @@
-<div class="form-group col-xs-offset-2 col-xs-8">
-    {!! Form::label('name', 'Nombre:', ['class' => 'control-label']) !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+
+<div class="col-sm-12">
+    <div class="form-group form-float">
+        <div class="form-line">
+            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            <label class="form-label">Nombre</label>
+        </div>
+    </div>
 </div>

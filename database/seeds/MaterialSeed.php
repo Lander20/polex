@@ -12,22 +12,28 @@ class MaterialSeed extends Seeder
     public function run()
     {
         DB::table('materials')->insert([
-            'name'=>'material 1'
+            'name'=>'material 1',
+            'price'=>3000
         ]);
         DB::table('materials')->insert([
-            'name'=>'material 2'
+            'name'=>'material 2',
+            'price'=>2000
         ]);
         DB::table('materials')->insert([
-            'name'=>'material 3'
+            'name'=>'material 3',
+            'price'=>500
         ]);
         DB::table('materials')->insert([
-            'name'=>'material 4'
+            'name'=>'material 4',
+            'price'=>3000
         ]);
         DB::table('materials')->insert([
-            'name'=>'material 5'
+            'name'=>'material 5',
+            'price'=>1000
         ]);
         DB::table('materials')->insert([
-            'name'=>'material 6'
+            'name'=>'material 6',
+            'price'=>1500
         ]);
     }
 }

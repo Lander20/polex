@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Seccion;
 use Illuminate\Http\Request;
 use App\Http\Requests\PerfilRequest;
 use App\Http\Requests;
@@ -43,26 +44,17 @@ class PerfilController extends Controller
     public function update(PerfilRequest $request, $id){
         $input=$request->all();
         $perfil=Perfil::findOrFail($id);
-        $perfil->fill($input)->save();
+        $perfil->fill($input)/*->save()*/;
+        $perfil->save();
 
         Session::flash('flash_message', 'Perfil editado con exito !');
         return redirect()->route('perfil.show',$id);
 
     }
 
-    public function destroy($id){
-        $perfil = Perfil::findOrFail($id);
-        $perfil->estado=0;
-        $perfil->save();
-        Session::flash('flash_flash_message', 'Perfil deshabilitado con exito !');
-        return redirect()->route('perfil.index');
-    }
-
-    public function habilitar($id){
-        $perfil = Perfil::findOrFail($id);
-        $perfil->estado=1;
-        $perfil->save();
-        Session::flash('flash_flash_message', 'Perfil habilitado con exito !');
-        return redirect()->route('perfil.index');
+    public function users($idPerfil){
+        $perfil=Perfil::find($idPerfil);
+        return $perfil->usuarios()->get();
+        return $perfil;
     }
 }

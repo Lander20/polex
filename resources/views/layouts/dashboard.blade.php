@@ -80,12 +80,12 @@
                                         <strong>Task 1</strong>
                                         <span class="pull-right text-muted">40% Complete</span>
                                     </p>
-                                   
+
                                         <div>
                                         @include('widgets.progress', array('animated'=> true, 'class'=>'success', 'value'=>'40'))
                                             <span class="sr-only">40% Complete (success)</span>
                                         </div>
-                                   
+
                                 </div>
                             </a>
                         </li>
@@ -97,12 +97,12 @@
                                         <strong>Task 2</strong>
                                         <span class="pull-right text-muted">20% Complete</span>
                                     </p>
-                                   
+
                                         <div>
                                         @include('widgets.progress', array('animated'=> true, 'class'=>'info', 'value'=>'20'))
                                             <span class="sr-only">20% Complete</span>
                                         </div>
-                                   
+
                                 </div>
                             </a>
                         </li>
@@ -114,12 +114,12 @@
                                         <strong>Task 3</strong>
                                         <span class="pull-right text-muted">60% Complete</span>
                                     </p>
-                                    
+
                                         <div>
                                         @include('widgets.progress', array('animated'=> true, 'class'=>'warning', 'value'=>'60'))
                                             <span class="sr-only">60% Complete (warning)</span>
                                         </div>
-                                   
+
                                 </div>
                             </a>
                         </li>
@@ -131,12 +131,12 @@
                                         <strong>Task 4</strong>
                                         <span class="pull-right text-muted">80% Complete</span>
                                     </p>
-                                    
+
                                         <div>
                                         @include('widgets.progress', array('animated'=> true,'class'=>'danger', 'value'=>'80'))
                                             <span class="sr-only">80% Complete (danger)</span>
                                         </div>
-                                    
+
                                 </div>
                             </a>
                         </li>
@@ -256,6 +256,18 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cogs"></i> Material<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{route('material.index')}}">Ver Materiales</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('material.create')}}">Crear Material</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                        {{-- <li >
                             <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
                             <!-- /.nav-second-level -->
@@ -266,6 +278,7 @@
                         <li>
                             <a href="/user"><i class="fa fa-edit fa-fw"></i> </a>
                         </li>--}}
+
                         <li >
                             <a href="#"><i class="fa fa-users"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -287,27 +300,10 @@
                                 <li>
                                     <a href="{{route('perfil.create')}}">Crear Perfil</a>
                                 </li>
-                                {{--<li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>--}}
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+
                         {{--<li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

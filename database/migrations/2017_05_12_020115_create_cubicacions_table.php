@@ -13,8 +13,11 @@ class CreateCubicacionsTable extends Migration
     public function up()
     {
         Schema::create('cubicacions', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
-            $table->foreign('id')
+            $table->increments('id');
+            $table->integer('quantity');
+
+            $table->integer('id_info')->unsigned();
+            $table->foreign('id_info')
                 ->references('id')->on('info_cubicacions')
                 ->onDelete('cascade');
 

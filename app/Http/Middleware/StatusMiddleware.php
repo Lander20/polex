@@ -15,7 +15,7 @@ class StatusMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->estado) {
+        if (!$request->user()->state) {
             //abort(403, "¡No tienes edad para ver este video! le diremos a tus padres.");
             //return view('layouts.logout');
             //return response('Unauthorized.', 401);

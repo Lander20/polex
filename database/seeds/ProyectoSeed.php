@@ -11,7 +11,7 @@ class ProyectoSeed extends Seeder
      */
     public function run(){
 
-        DB::table('proyectos')->insert([
+        /*DB::table('proyectos')->insert([
             'name' => 'Proyecto 1',
             'id_usuario'=> '1'
         ]);
@@ -20,17 +20,17 @@ class ProyectoSeed extends Seeder
             'id_usuario'=> '1'
         ]);
 
-        /*-------------------------------*/
+        /*-------------------------------
 
         DB::table('proyectos')->insert([
             'name' => 'Proyecto 3',
             'id_usuario'=> '2'
         ]);
-        /*-------------------------------*/
+        /*-------------------------------
         DB::table('proyectos')->insert([
             'name' => 'Proyecto 4',
             'id_usuario'=> '3'
-        ]);
+        ]);*/
 
     }
 }

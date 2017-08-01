@@ -1,21 +1,17 @@
 @extends('layouts.dashboard')
-@section('page_heading','Proyecto')
-@section('page_small','Editando Proyecto')
-
+@section('page_heading','Material')
+@section('page_small','Editando Material')
 @section('section')
     <div class="card">
         <div class="body">
             <br>
-            {!! Form::model($proyecto, ['method' => 'PATCH', 'route' => ['proyecto.update', $proyecto->id]]) !!}
+            {!! Form::model($material, ['method' => 'PATCH', 'route' => ['material.update', $material->id]]) !!}
 
-            @include('proyecto.form')
+            @include('material.form')
 
             {!! Form::submit('Guardar', ['class' => 'btn btn-success',"style"=>"margin-left:41%"]) !!}
 
-
             {!! Form::close() !!}
-
-
         </div>
     </div>
 

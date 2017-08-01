@@ -23,11 +23,26 @@ class UserRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6',
-        ];
+
+        switch($this->method()) {
+            case 'PUT':
+            case 'PATCH':
+            return [
+                'name' => 'required|max:255',
+                'last_name' => 'required|max:255',
+                'email' => 'required|email|max:255|unique:users',
+
+            ];
+
+            default:
+                return [
+                    'name' => 'required|max:255',
+                    'last_name' => 'required|max:255',
+                    'password' => 'required|min:6',
+                    'email' => 'required|email|max:255|unique:users',
+                ];
+        }
+
+
     }
 }

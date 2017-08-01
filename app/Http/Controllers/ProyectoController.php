@@ -26,25 +26,29 @@ class ProyectoController extends Controller
     public function store(ProyectoRequest $request){
         $proyecto = $request->all();
         //$proyecto['id_usuario']=Auth::user()->id;
-        
+
+        $shortname=explode(" ",$proyecto["name"]);
+        $proyecto["shortname"] = "";
+        foreach ($shortname as $s){
+            $proyecto["shortname"].=strtoupper($s[0]);
+        }
+
         $proyecto=Proyecto::create($proyecto);
 
-        //TODO se crean 3 planos automaticamente asignados a este PROYECTO.
-        //Por mientras
         $plano1=Plano::create([
-            'name' => $proyecto->name."_Plano1",
+            'name' => $proyecto->shortname."-001-DET",
             'id_proyecto' => $proyecto->id,
         ]);
         $plano2=Plano::create([
-            'name' => $proyecto->name."_Plano2",
+            'name' => $proyecto->shortname."-001-EXT",
             'id_proyecto' => $proyecto->id,
         ]);
         $plano3=Plano::create([
-            'name' => $proyecto->name."_Plano3",
+            'name' => $proyecto->shortname."-002-EXT",
             'id_proyecto' => $proyecto->id,
         ]);
 
-        Session::flash('flash_message', 'Perfil creado con exito !');
+        Session::flash('flash_message', 'Proyecto creado con exito !');
         return redirect()->route('proyecto.index');
     }
 
@@ -66,14 +70,14 @@ class ProyectoController extends Controller
         $proyecto=Proyecto::findOrFail($id);
         $proyecto->fill($input)->save();
 
-        Session::flash('flash_message', 'Perfil editado con exito !');
-        return redirect()->route('proyecto.show',$id);
+        Session::flash('flash_message', 'Proyecto modificado con exito !');
+        return redirect()->route('proyecto.index');
 
     }
 
     public function destroy($id){
         $proyecto = Proyecto::findOrFail($id);
-        $proyecto->estado=0;
+        $proyecto->state=0;
         $proyecto->save();
         Session::flash('flash_flash_message', 'Perfil deshabilitado con exito !');
         return redirect()->route('proyecto.index');
@@ -81,7 +85,7 @@ class ProyectoController extends Controller
 
     public function habilitar($id){
         $proyecto = Proyecto::findOrFail($id);
-        $proyecto->estado=1;
+        $proyecto->state=1;
         $proyecto->save();
         Session::flash('flash_flash_message', 'Perfil habilitado con exito !');
         return redirect()->route('proyecto.index');

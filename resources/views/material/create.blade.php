@@ -1,18 +1,19 @@
-@extends('layouts.dashboard')
-@section('page_heading','Editando usuario')
+@extends('layouts.plane')
+@section('page_heading','Material')
+@section('page_small','Crear un nuevo Material')
 @section('section')
+
     <div class="card">
         <div class="body">
             <br>
-            {!! Form::model($usuario, ['method' => 'PATCH', 'route' => ['user.update', $usuario->id]]) !!}
+            {!! Form::open([ 'route' => 'material.store']) !!}
 
-            @include('user.form')
+            @include('material.form')
 
             {!! Form::submit('Guardar', ['class' => 'btn btn-success',"style"=>"margin-left:41%"]) !!}
 
             {!! Form::close() !!}
         </div>
     </div>
-
 
 @stop

@@ -23,9 +23,18 @@ class ProyectoRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name'=>'required|unique:proyectos',
+        switch($this->method()) {
+            case 'PUT':
+            case 'PATCH':
+                return [
+                    'name'=>'required',
+                ];
 
-        ];
+            default:
+                return [
+                    'name'=>'required|unique:proyectos',
+                ];
+        }
+
     }
 }

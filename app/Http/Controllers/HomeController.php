@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \Log;
+
 
 class HomeController extends Controller
 {
@@ -15,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        if(Auth::user()->estado){
+        if(Auth::user()->state){
             $this->middleware('auth');
         }
         else{
@@ -30,8 +32,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-
-        return view('polex');
+        return view('layouts.plane');
     }
 
 

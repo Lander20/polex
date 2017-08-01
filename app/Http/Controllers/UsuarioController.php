@@ -28,7 +28,7 @@ class UsuarioController extends Controller
         $usuario['password']=bcrypt($usuario['password']);
         $user=User::create($usuario);
 
-        Session::flash('message', 'Usuario creado con exito !');
+        Session::flash('flash_message', 'Usuario creado con exito !');
         return redirect()->route('user.index');
     }
 
@@ -59,7 +59,7 @@ class UsuarioController extends Controller
 
     public function destroy($id){
         $usuario = User::findOrFail($id);
-        $usuario->estado=0;
+        $usuario->state=0;
         $usuario->save();
         Session::flash('flash_message', 'Usuario deshabilitado con exito !');
         return redirect()->route('user.index');
@@ -67,9 +67,15 @@ class UsuarioController extends Controller
 
     public function habilitar($id){
         $usuario = User::findOrFail($id);
-        $usuario->estado=1;
+        $usuario->state=1;
         $usuario->save();
         Session::flash('flash_message', 'Usuario habilitado con exito !');
         return redirect()->route('user.index');
+    }
+
+    public function proyectos($idUser){
+        $user = User::find($idUser);
+        return $user->proyectos()->get();
+
     }
 }

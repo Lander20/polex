@@ -13,19 +13,19 @@ class PerfilSeeder extends Seeder
     {
         DB::table('perfils')->insert([
             'name' => 'Administrador',
-            'estado'=>'1',
+            'description'=>'Es el encargado de Administrar todo el sistema, puede ver, modificar, borrar y desactivar, segun corresponda la sección',
             'id' => '1'
         ]);
 
         DB::table('perfils')->insert([
-            'name' => 'Perfil 1',
-            'estado'=>'1',
+            'name' => 'Cubicador',
+            'description'=>'El el encargado de cubicar y bla bla bla bla ....',
             'id' => '2'
         ]);
 
         DB::table('perfils')->insert([
-            'name' => 'Perfil 2',
-            'estado'=>'1',
+            'name' => 'Revisor',
+            'description'=>'Es el encargado de revisar y aprobar cubicaciones por plano, permitiendo asi generar informes de prespuesto por plano o por proyecto.',
             'id' => '3'
         ]);
     }
