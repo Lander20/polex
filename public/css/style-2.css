@@ -1,0 +1,76 @@
+.theme-red-login{
+    background-image: url("../images/fondo.svg");
+}
+.btn-olvide{
+    margin-left: 140px;
+    margin-top: 10px;
+    color: white;
+}
+.btn-olvide:hover, .btn-olvide:focus {
+    color: white;
+    text-decoration: none;
+    /*color: #23527c;
+    text-decoration: underline;*/
+}
+
+.i-img{
+    width: 1px;
+    height: 1px;
+    color:white;
+    position: absolute;
+}
+.btns a{
+    margin-right: 3px;
+}
+
+.proyectos a:hover, a:focus {
+    color: white;
+    text-decoration: none;
+}
+.proyectos .info-box{
+    height:85px
+}
+.proyectos .info-box .content{
+    /*margin-left: -10px;
+    padding: 7px 0;*/
+}
+.proyectos .info-box .icon{
+    min-width: 80px;
+}
+.proyectos .info-box a {
+    width: 30px;
+    height: 30px;
+}
+.proyectos .div-btns{
+    display: flex;
+    position: absolute;
+    top: 52px;
+    right: 5px;
+    z-index: 10;
+}
+
+.proyectos .info-box a i{
+    font-size: 16px;
+    line-height: 32px;
+    top: -8px;
+    left: -5px;
+}
+.proyectos .info-box .content .user{
+    margin-top: 0;
+}
+.proyectos .info-box .content .name{
+    word-break: break-word;
+    font-size: 19px;
+}
+
+.alerts-message{
+    position: fixed;
+    z-index: 99;
+    right: 0;
+    left: 0px;
+    min-width: 270px;
+    margin: 0px auto;
+    bottom: 20px;
+/* transition: all 0.5s ease-in-out; */
+    display: inline-block;
+}
